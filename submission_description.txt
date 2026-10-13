@@ -1,0 +1,7 @@
+This report documents my Week 6 capstone: a complete data science pipeline built on the public Hotel Booking Demand dataset, which holds 119,390 bookings from a city hotel and a resort hotel in Portugal. I chose a hospitality problem because I am studying hotel management alongside computer science, and the question I asked was which bookings are likely to be cancelled and what a hotel can do about it.
+
+The report starts with data cleaning. I handled missing values column by column, removed about 32,000 duplicate rows (which moved the cancellation rate from 37% to 27.5%), dropped impossible records such as zero-guest bookings, and capped extreme daily rates using the IQR rule. I then engineered features such as total nights, guest count and a season index, and I excluded columns that leak the answer, such as reservation status.
+
+The exploratory analysis uses annotated Matplotlib and Seaborn charts to show seasonality, lead time effects, and cancellation differences by market segment and deposit type. For unsupervised learning I applied K-Means with elbow and silhouette checks and chose four guest segments, while stating plainly that the silhouette score of 0.22 is low. For supervised learning I compared logistic regression with a Random Forest using 5-fold cross-validation. The Random Forest reached a test ROC-AUC of 0.851 and recall of 48% on cancellations.
+
+The report ends with business recommendations, limitations and a personal reflection. The complete reproducible Python script is included in Appendix A and in my GitHub repository.
